@@ -13,12 +13,15 @@ import { CourseRoute, QueueRoute } from '@enums/Route';
 
 import { useToast } from '@hooks/useToast';
 
-import { Fields } from './types';
-
 const signInFormSchema = yup.object().shape({
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
   password: yup.string().required('Senha obrigatória'),
 });
+
+export interface Fields {
+  email: string;
+  password: string;
+}
 
 const Login: FC = () => {
   const [loading, setLoadding] = useState(false);
